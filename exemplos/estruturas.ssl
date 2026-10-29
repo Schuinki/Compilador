@@ -1,0 +1,146 @@
+type Ponto  = struct { x, y : integer }
+type Reta   = struct { a : Ponto; b : Ponto; nome : string }
+type Pontos = array [10] of Ponto
+type Vetor  = array [5] of integer
+
+function dist(p : Ponto, q : Ponto) : integer
+{
+    var dx, dy : integer;
+    dx = p.x - q.x;
+    dy = p.y - q.y;
+    if (dx < 0) dx = -dx;
+    if (dy < 0) dy = -dy;
+    return dx + dy;
+}
+
+function fib(n : integer) : integer
+{
+    var r : integer;
+    if (n <= 1) r = n; else r = fib(n - 1) + fib(n - 2);
+    return r;
+}
+
+function perimetro(n : integer) : integer
+{
+    var v : Pontos;
+    var i, total : integer;
+    i = 0;
+    while (i < 5) {
+        var p : Ponto;
+        p.x = i * n;
+        p.y = i * i;
+        v[i] = p;
+        i = i + 1;
+    }
+    i = 0;
+    total = 0;
+    while (i < 4) {
+        var d : integer;
+        d = dist(v[i], v[i + 1]);
+        total = total + d;
+        i = i + 1;
+    }
+    return total;
+}
+
+function reta(n : integer) : integer
+{
+    var r : Reta;
+    var k : integer;
+    r.a.x = n;
+    r.a.y = 1;
+    r.b = r.a;
+    r.b.x = r.b.x * 2;
+    k = r.a.x++ + ++r.b.y;
+    k = k * 100 + r.a.x * 10 + r.b.x;
+    return k;
+}
+
+function rotulo(n : integer) : string
+{
+    var r : Reta;
+    r.nome = "abc";
+    r.nome[0] = 'X';
+    r.nome[n] = r.nome[0];
+    return r.nome + "!";
+}
+
+function laco(n : integer) : integer
+{
+    var i, s : integer;
+    i = 0;
+    s = 0;
+    do {
+        var t : integer;
+        i = i + 1;
+        if (i == 3) continue;
+        if (i > n) break;
+        t = i * i;
+        s = s + t;
+    } while (i < 100);
+    return s;
+}
+
+function logica(a : integer, b : integer) : boolean
+{
+    var x : boolean;
+    x = (a < b && !(a == 0)) || b == 7;
+    return x;
+}
+
+function divmod(a : integer, b : integer) : integer
+{
+    var q : integer;
+    q = a / b;
+    return q * 100 + (a - q * b);
+}
+
+function ehDigito(c : char) : boolean
+{
+    var r : boolean;
+    r = c >= '0' && c <= '9';
+    return r;
+}
+
+function soma(v : Vetor, n : integer) : integer
+{
+    var i, s : integer;
+    i = 0;
+    s = 0;
+    while (i < n) {
+        var e : integer;
+        e = v[i];
+        s = s + e;
+        i = i + 1;
+    }
+    return s;
+}
+
+function somaVet(n : integer) : integer
+{
+    var v : Vetor;
+    var i : integer;
+    i = 0;
+    while (i < 5) {
+        var d : integer;
+        d = n + i;
+        v[i] = d;
+        i = i + 1;
+    }
+    return soma(v, 5);
+}
+
+function ponto(a : integer) : Ponto
+{
+    var p : Ponto;
+    p.x = a;
+    p.y = a * 2;
+    return p;
+}
+
+function usaPonto(n : integer) : integer
+{
+    var p : Ponto;
+    p = ponto(n);
+    return p.x + p.y;
+}

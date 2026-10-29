@@ -1,0 +1,42 @@
+type Ponto = struct {
+    x, y : integer
+}
+
+function soma(a : integer, b : integer) : integer {
+    var resultado : integer;
+    resultado = a + b;
+    return resultado;
+}
+
+function main() : integer {
+    var p : Ponto;
+    var v : array[10] of integer;
+    var nome : string;
+    var ok : boolean;
+    var letra : char;
+
+    p.x = 10;
+    p.y = 20;
+    v[0] = 100;
+    nome = "compiladores";
+    letra = 'A';
+    ok = true;
+
+    if (p.x < p.y && ok) {
+        resultado = soma(p.x, p.y);
+    } else {
+        resultado = 0;
+    }
+
+    while (v[0] != 0) {
+        v[0] = v[0] - 1;
+        if (v[0] == 5) { break; }
+        continue;
+    }
+
+    do {
+        v[0]++;
+    } while (v[0] <= 10);
+
+    return resultado;
+}

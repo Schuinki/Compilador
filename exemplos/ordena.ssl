@@ -1,0 +1,41 @@
+type intArray = array [30] of integer
+
+function bSort(a : intArray, n : integer) : intArray
+{
+    var i, j, v : integer;
+    i = 0;
+    while (i < n) {
+        var trocou : boolean;
+        trocou = false;
+        j = i + 1;
+        while (j < n) {
+            var k : integer;
+            if (a[i] > a[j]) {
+                var t : integer;
+                v = a[i];
+                a[i] = a[j];
+                a[j] = v;
+                trocou = true;
+            }
+            k = j;
+            j = k + 1;
+        }
+        i = i + 1;
+    }
+    return a;
+}
+
+function testeOrdena(n : integer) : integer
+{
+    var v : intArray;
+    var i : integer;
+    i = 0;
+    while (i < 5) {
+        var x : integer;
+        x = (i * 7 + n) - (i * 7 + n) / 10 * 10;
+        v[i] = x;
+        i = i + 1;
+    }
+    v = bSort(v, 5);
+    return v[0] * 10000 + v[1] * 1000 + v[2] * 100 + v[3] * 10 + v[4];
+}

@@ -1,0 +1,35 @@
+type Ponto = struct { x, y : integer }
+type Vetor = array [5] of integer
+
+function f(n : integer, s : string) : integer
+{
+    var p : Ponto;
+    var v : Vetor;
+    var b : boolean;
+    var k : n;
+    if (n) n = 1;
+    b = n + 1;
+    b = b + b;
+    n = n.x;
+    n = p[0];
+    n = v[b];
+    n = p.z;
+    n = Ponto;
+    n = n(1);
+    n = f(1, "a", 2);
+    n = f(1);
+    n = f(b, "a");
+    b = n < "a";
+    n = -b;
+    b = !n;
+    b = b && n;
+    v[0] = s[0];
+    return b;
+}
+
+function g(n : integer) : integer
+{
+    var x : integer;
+    break;
+    return x;
+}

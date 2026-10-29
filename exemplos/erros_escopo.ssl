@@ -1,0 +1,13 @@
+type Ponto = struct { x, y : integer; x : char }
+
+function f(a : integer, a : char) : integer
+{
+    var b : integer;
+    var b : char;
+    b = c;
+    {
+        var b : boolean;
+        b = true;
+    }
+    return g(b);
+}

@@ -1,0 +1,48 @@
+type Ponto  = struct { x, y : integer }
+type Nome   = string
+type Coord  = Ponto
+type Linha  = struct { a : Ponto; b : Coord; rotulo : Nome }
+type Pontos = array [10] of Ponto
+
+function dist(p : Ponto, q : Coord) : integer
+{
+    var dx, dy : integer;
+    dx = p.x - q.x;
+    dy = p.y - q.y;
+    if (dx < 0) dx = -dx;
+    if (dy < 0) dy = -dy;
+    return dx + dy;
+}
+
+function fib(n : integer) : integer
+{
+    var r : integer;
+    if (n <= 1) r = n; else r = fib(n - 1) + fib(n - 2);
+    return r;
+}
+
+function teste(v : Pontos, l : Linha) : boolean
+{
+    var i, total : integer;
+    var ok, achou : boolean;
+    var nome : Nome;
+    var letra : char;
+    i = 0;
+    total = 0;
+    ok = true;
+    achou = false;
+    nome = l.rotulo + "!";
+    letra = nome[0];
+    do {
+        var d : integer;
+        d = dist(v[i], l.b);
+        if (d == 0) continue;
+        if (d > 100 || !ok) break;
+        total = total + d * 2 / 1;
+        d = i++;
+        d = --total + i-- - ++i;
+    } while (i < 10 && (total >= 0 || letra != 'x'));
+    if (ok) if (total > 50) achou = true; else achou = false;
+    l.a.x = v[2].y;
+    return achou && fib(total) != 0 && nome == "abc";
+}
